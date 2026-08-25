@@ -753,186 +753,120 @@ function createCompetition() {
 
 /* ==================================================
    REAL GEMINI AI
-   FRONTEND → /api/ai → GEMINI
+   FRONTEND → /api/ai → VERCEL → GEMINI
 ================================================== */
 
 let aiBusy = false;
 
 async function sendChat() {
+  const input = document.getElementById("chatInput");
+  const messages = document.getElementById("chatMessages");
 
-  const input =
-    document.getElementById(
-      "chatInput"
-    );
+  if (!input || !messages) return;
 
-  const messages =
-    document.getElementById(
-      "chatMessages"
-    );
+  if (aiBusy) return;
 
-  if (!input || !messages) {
-    return;
-  }
+  const text = input.value.trim();
 
-  if (aiBusy) {
-    return;
-  }
-
-  const text =
-    input.value.trim();
-
-  if (!text) {
-    return;
-  }
+  if (!text) return;
 
   aiBusy = true;
 
-  /* USER MESSAGE */
+  /* =========================
+     USER MESSAGE
+  ========================= */
 
-  const userMessage =
-    document.createElement(
-      "div"
-    );
+  const userMessage = document.createElement("div");
+  userMessage.className = "message mine";
 
-  userMessage.className =
-    "message mine";
+  const userLabel = document.createElement("small");
+  userLabel.textContent = "You";
 
-  const userLabel =
-    document.createElement(
-      "small"
-    );
+  const userContent = document.createElement("div");
+  userContent.textContent = text;
 
-  userLabel.textContent =
-    "You";
+  userMessage.appendChild(userLabel);
+  userMessage.appendChild(userContent);
 
-  const userContent =
-    document.createElement(
-      "div"
-    );
+  messages.appendChild(userMessage);
 
-  userContent.textContent =
-    text;
-
-  userMessage.appendChild(
-    userLabel
-  );
-
-  userMessage.appendChild(
-    userContent
-  );
-
-  messages.appendChild(
-    userMessage
-  );
-
-  input.value =
-    "";
-
-  messages.scrollTop =
-    messages.scrollHeight;
+  input.value = "";
+  messages.scrollTop = messages.scrollHeight;
 
 
-  /* AI MESSAGE */
+  /* =========================
+     AI MESSAGE
+  ========================= */
 
-  const aiMessage =
-    document.createElement(
-      "div"
-    );
+  const aiMessage = document.createElement("div");
+  aiMessage.className = "message";
 
-  aiMessage.className =
-    "message";
+  const aiLabel = document.createElement("small");
+  aiLabel.textContent = "Youth Caring Heart AI";
 
-  const aiLabel =
-    document.createElement(
-      "small"
-    );
+  const aiContent = document.createElement("div");
+  aiContent.textContent = "Typing...";
 
-  aiLabel.textContent =
-    "Youth Caring Heart AI";
+  aiMessage.appendChild(aiLabel);
+  aiMessage.appendChild(aiContent);
 
-  const aiContent =
-    document.createElement(
-      "div"
-    );
+  messages.appendChild(aiMessage);
 
-  aiContent.textContent =
-    "Typing...";
-
-  aiMessage.appendChild(
-    aiLabel
-  );
-
-  aiMessage.appendChild(
-    aiContent
-  );
-
-  messages.appendChild(
-    aiMessage
-  );
-
-  messages.scrollTop =
-    messages.scrollHeight;
+  messages.scrollTop = messages.scrollHeight;
 
 
-  /* CALL VERCEL */
+  /* =========================
+     CALL VERCEL API
+  ========================= */
 
   try {
+    const response = await fetch("/api/ai", {
+      method: "POST",
 
-    const response =
-      await fetch(
-        "/api/ai",
-        {
-          method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
 
-          headers: {
-            "Content-Type":
-              "application/json"
-          },
+      body: JSON.stringify({
+        message: text
+      })
+    });
 
-          body: JSON.stringify({
-            message: text
-          })
-        }
-      );
+    const data = await response.json().catch(() => null);
 
-    const data =
-      await response.json()
-        .catch(() => ({}));
+    console.log("AI API status:", response.status);
+    console.log("AI API response:", data);
 
-    if (
-      response.ok &&
-      typeof data.reply ===
-        "string" &&
-      data.reply.trim()
-    ) {
+    if (response.ok && data && data.reply) {
+
+      aiContent.textContent = data.reply;
+
+    } else if (data && data.error) {
 
       aiContent.textContent =
-        data.reply;
+        "❌ AI Error: " + data.error;
 
     } else {
 
       aiContent.textContent =
-        data.error ||
-        "Sorry, I couldn't process your message. Please try again.";
+        "❌ AI request failed. Check Vercel Logs.";
+
     }
 
   } catch (error) {
 
-    console.error(
-      "AI Error:",
-      error
-    );
+    console.error("AI connection error:", error);
 
     aiContent.textContent =
-      "❌ Error connecting to AI service.";
+      "❌ Cannot connect to /api/ai.";
 
   } finally {
 
     aiBusy = false;
+
   }
 
-  messages.scrollTop =
-    messages.scrollHeight;
+  messages.scrollTop = messages.scrollHeight;
 }
 
 
