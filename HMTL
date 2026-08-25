@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Youth Caring Heart</title>
+
+  <meta
+    name="description"
+    content="Youth Caring Heart — young people caring, volunteering and creating positive change."
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+  <a href="#home" class="logo">
+    ❤️ Youth Caring Heart
+  </a>
+
+  <nav id="mainNav">
+
+    <a href="#home">Home</a>
+
+    <a href="#about">About</a>
+
+    <a href="#projects">Projects</a>
+
+    <a href="#register">Join Us</a>
+
+    <a href="#ai">AI Assistant</a>
+
+  </nav>
+
+  <button
+    class="menu-button"
+    id="menuButton"
+  >
+    ☰
+  </button>
+
+</header>
+
+
+<main>
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="hero">
+
+  <div class="hero-content">
+
+    <span class="hero-badge">
+      ❤️ Youth • Caring • Action
+    </span>
+
+    <h1>
+      Your Heart Can
+      Make a Difference.
+    </h1>
+
+    <p>
+      Youth Caring Heart brings
+      young people together to
+      volunteer, help others and
+      create positive change.
+    </p>
+
+    <div class="hero-actions">
+
+      <a
+        href="#register"
+        class="button primary"
+      >
+        Join Youth Caring Heart
+      </a>
+
+      <a
+        href="#ai"
+        class="button secondary"
+      >
+        Ask our AI 🤖
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= ANNOUNCEMENT ================= -->
+
+<section class="announcement-section">
+
+  <div class="announcement-banner">
+
+    <div>
+
+      <span class="announcement-label">
+        📢 Latest Announcement
+      </span>
+
+      <h2 id="publicPosterTitle">
+        Welcome to Youth Caring Heart
+      </h2>
+
+      <p id="publicPosterText">
+        Join us and become part of
+        a community that cares.
+      </p>
+
+    </div>
+
+    <a
+      href="#register"
+      class="button white-button"
+    >
+      Register Now
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+  <div class="section-heading">
+
+    <span class="small-title">
+      ABOUT US
+    </span>
+
+    <h2>
+      We believe young people
+      can create change.
+    </h2>
+
+    <p>
+      Youth Caring Heart is a youth
+      initiative based on kindness,
+      volunteering, solidarity and
+      positive action.
+    </p>
+
+  </div>
+
+
+  <div class="cards">
+
+    <article class="card">
+
+      <div class="card-icon">
+        ❤️
+      </div>
+
+      <h3>
+        Caring
+      </h3>
+
+      <p>
+        We care about people,
+        our community and the
+        world around us.
+      </p>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="card-icon">
+        🤝
+      </div>
+
+      <h3>
+        Volunteering
+      </h3>
+
+      <p>
+        We encourage young people
+        to give their time, skills
+        and energy.
+      </p>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="card-icon">
+        🌱
+      </div>
+
+      <h3>
+        Positive Action
+      </h3>
+
+      <p>
+        We turn ideas into useful
+        activities and community
+        projects.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+
+<section
+  id="projects"
+  class="gray-section"
+>
+
+  <div class="section-heading">
+
+    <span class="small-title">
+      OUR PROJECTS
+    </span>
+
+    <h2>
+      What we want to do
+    </h2>
+
+  </div>
+
+
+  <div class="cards">
+
+    <article class="project-card">
+
+      <span>❤️</span>
+
+      <h3>
+        Helping Children
+      </h3>
+
+      <p>
+        Activities designed to
+        bring support, kindness
+        and positive moments.
+      </p>
+
+    </article>
+
+
+    <article class="project-card">
+
+      <span>🌍</span>
+
+      <h3>
+        Community Activities
+      </h3>
+
+      <p>
+        Positive initiatives
+        created by young people
+        for the community.
+      </p>
+
+    </article>
+
+
+    <article class="project-card">
+
+      <span>🤝</span>
+
+      <h3>
+        Youth Volunteering
+      </h3>
+
+      <p>
+        Opportunities for young
+        people to participate
+        and develop their skills.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- ================= REGISTER ================= -->
+
+<section id="register">
+
+  <div class="section-heading">
+
+    <span class="small-title">
+      JOIN US
+    </span>
+
+    <h2>
+      Create your Youth Caring Heart profile
+    </h2>
+
+    <p>
+      Complete the registration form
+      to become part of our community.
+    </p>
+
+  </div>
+
+
+  <form
+    id="registrationForm"
+    class="registration-form"
+  >
+
+    <div class="form-row">
+
+      <div class="form-group">
+
+        <label>
+          Full name *
+        </label>
+
+        <input
+          id="name"
+          type="text"
+          maxlength="100"
+          required
+          placeholder="Your full name"
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Email *
+        </label>
+
+        <input
+          id="email"
+          type="email"
+          maxlength="200"
+          required
+          placeholder="your@email.com"
+        >
+
+      </div>
+
+    </div>
+
+
+    <div class="form-row">
+
+      <div class="form-group">
+
+        <label>
+          City
+        </label>
+
+        <input
+          id="city"
+          type="text"
+          maxlength="100"
+          placeholder="Your city"
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Phone
+        </label>
+
+        <input
+          id="phone"
+          type="text"
+          maxlength="30"
+          placeholder="Optional"
+        >
+
+      </div>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        What interests you?
+      </label>
+
+      <select id="interest">
+
+        <option value="">
+          Select an interest
+        </option>
+
+        <option>
+          Volunteering
+        </option>
+
+        <option>
+          Helping Children
+        </option>
+
+        <option>
+          Community Activities
+        </option>
+
+        <option>
+          Youth Projects
+        </option>
+
+        <option>
+          Technology
+        </option>
+
+        <option>
+          Other
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Skills
+      </label>
+
+      <input
+        id="skills"
+        type="text"
+        maxlength="300"
+        placeholder="Communication, teamwork, design..."
+      >
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Why would you like to join?
+      </label>
+
+      <textarea
+        id="motivation"
+        maxlength="1000"
+        placeholder="Tell us about your motivation..."
+      ></textarea>
+
+    </div>
+
+
+    <label class="privacy-check">
+
+      <input
+        id="privacy"
+        type="checkbox"
+        required
+      >
+
+      <span>
+        I understand that the information
+        I submit will be used to manage
+        my Youth Caring Heart registration.
+      </span>
+
+    </label>
+
+
+    <button
+      type="submit"
+      class="button primary submit-button"
+    >
+      Create My Profile ❤️
+    </button>
+
+
+    <div
+      id="registrationMessage"
+      class="message"
+    ></div>
+
+  </form>
+
+</section>
+
+
+<!-- ================= SUCCESS PROFILE ================= -->
+
+<section
+  id="profileSuccess"
+  class="profile-success hidden"
+>
+
+  <div class="success-card">
+
+    <div class="success-icon">
+      ❤️
+    </div>
+
+    <h2>
+      Welcome to Youth Caring Heart!
+    </h2>
+
+    <p>
+      Your registration was successfully received.
+    </p>
+
+    <div class="member-id-box">
+
+      <span>
+        Your Member ID
+      </span>
+
+      <strong id="memberId">
+        YCH-000000
+      </strong>
+
+    </div>
+
+    <p class="small-text">
+      Keep this ID for your records.
+    </p>
+
+    <a
+      href="#ai"
+      class="button primary"
+    >
+      Talk to our AI 🤖
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ================= AI ================= -->
+
+<section
+  id="ai"
+  class="gray-section"
+>
+
+  <div class="section-heading">
+
+    <span class="small-title">
+      AI ASSISTANT
+    </span>
+
+    <h2>
+      🤖 How can we help?
+    </h2>
+
+    <p>
+      Ask questions about Youth Caring Heart,
+      volunteering, projects or registration.
+    </p>
+
+  </div>
+
+
+  <div class="ai-container">
+
+    <div
+      id="aiMessages"
+      class="ai-messages"
+    >
+
+      <div class="ai-message bot-message">
+
+        <strong>
+          Youth Caring Heart AI
+        </strong>
+
+        <p>
+          Hi! 👋 How are you?
+          How can I help you today?
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="ai-input-area">
+
+      <input
+        id="aiInput"
+        type="text"
+        maxlength="2000"
+        placeholder="Hi, how are you? Can you help me?"
+      >
+
+      <button
+        id="aiButton"
+        class="button primary"
+      >
+        Send
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= ADMIN ================= -->
+
+<section
+  id="admin"
+  class="admin-section"
+>
+
+  <div class="section-heading">
+
+    <span class="small-title">
+      PRIVATE AREA
+    </span>
+
+    <h2>
+      🔐 Administrator
+    </h2>
+
+    <p>
+      This area is only for authorized
+      Youth Caring Heart administrators.
+    </p>
+
+  </div>
+
+
+  <!-- LOGIN -->
+
+  <div
+    id="adminLogin"
+    class="admin-login"
+  >
+
+    <form id="loginForm">
+
+      <input
+        id="adminEmail"
+        type="email"
+        placeholder="Admin email"
+        required
+      >
+
+      <input
+        id="adminPassword"
+        type="password"
+        placeholder="Admin password"
+        required
+      >
+
+      <button
+        type="submit"
+        class="button primary"
+      >
+        Enter Dashboard
+      </button>
+
+      <div
+        id="loginMessage"
+        class="message"
+      ></div>
+
+    </form>
+
+  </div>
+
+
+  <!-- DASHBOARD -->
+
+  <div
+    id="adminDashboard"
+    class="dashboard hidden"
+  >
+
+    <div class="dashboard-header">
+
+      <div>
+
+        <span class="small-title">
+          ADMIN DASHBOARD
+        </span>
+
+        <h2>
+          Youth Caring Heart
+        </h2>
+
+      </div>
+
+      <button
+        id="logoutButton"
+        class="logout-button"
+      >
+        Logout
+      </button>
+
+    </div>
+
+
+    <!-- STATISTICS -->
+
+    <div class="statistics">
+
+      <div class="stat-card">
+
+        <span>
+          👥
+        </span>
+
+        <strong id="memberCount">
+          0
+        </strong>
+
+        <small>
+          Members
+        </small>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <span>
+          📢
+        </span>
+
+        <strong>
+          Poster
+        </strong>
+
+        <small>
+          Announcement
+        </small>
+
+      </div>
+
+    </div>
+
+
+    <!-- POSTER -->
+
+    <div class="admin-panel">
+
+      <h3>
+        📢 Create / Update Poster
+      </h3>
+
+      <form id="posterForm">
+
+        <input
+          id="posterTitle"
+          type="text"
+          maxlength="120"
+          placeholder="Poster title"
+          required
+        >
+
+        <textarea
+          id="posterText"
+          maxlength="500"
+          placeholder="Poster message..."
+          required
+        ></textarea>
+
+        <button
+          type="submit"
+          class="button primary"
+        >
+          Publish Poster
+        </button>
+
+        <div
+          id="posterMessage"
+          class="message"
+        ></div>
+
+      </form>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="admin-panel">
+
+      <h3>
+        🔎 Search Members
+      </h3>
+
+      <input
+        id="memberSearch"
+        class="search-input"
+        type="search"
+        placeholder="Search by name, email, city, interest..."
+      >
+
+      <div
+        id="memberList"
+        class="member-list"
+      >
+        Loading...
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <h3>
+    ❤️ Youth Caring Heart
+  </h3>
+
+  <p>
+    Caring hearts. Positive action.
+    Stronger communities.
+  </p>
+
+  <p class="copyright">
+    ©️ 2026 Youth Caring Heart
+  </p>
+
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
