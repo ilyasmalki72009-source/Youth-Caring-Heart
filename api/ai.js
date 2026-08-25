@@ -1,10 +1,7 @@
-export default async function handler(req, res) {
-  console.log("AI FUNCTION WAS CALLED");
-  console.log("METHOD:", req.method);
-
+export default function handler(req, res) {
   return res.status(200).json({
     success: true,
-    method: req.method,
-    message: "AI endpoint is working!"
+    message: "AI API IS WORKING",
+    method: req.method
   });
 }
