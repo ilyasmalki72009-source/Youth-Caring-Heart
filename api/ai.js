@@ -1,4 +1,12 @@
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({
+  apiKey: process.env.GEMINI_API_KEY
+});
+
 export default async function handler(req, res) {
+  console.log("AI FUNCTION CALLED");
+
   if (req.method !== "POST") {
     return res.status(405).json({
       error: "Method not allowed"
@@ -6,7 +14,11 @@ export default async function handler(req, res) {
   }
 
   try {
+    console.log("API KEY EXISTS:", !!process.env.GEMINI_API_KEY);
+
     const { message } = req.body || {};
+
+    console.log("MESSAGE:", message);
 
     if (!message || typeof message !== "string") {
       return res.status(400).json({
@@ -14,80 +26,24 @@ export default async function handler(req, res) {
       });
     }
 
-    const response = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-goog-api-key": process.env.GEMINI_API_KEY
-        },
-        body: JSON.stringify({
-          systemInstruction: {
-            parts: [
-              {
-                text: `
-You are Youth Caring Heart AI.
+    const response = await ai.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: message.trim().slice(0, 2000)
+    });
 
-Youth Caring Heart is a youth community organization
-focused on volunteering, helping children, community
-activities, competitions, education and positive social impact.
-
-Be friendly, helpful, concise and encouraging.
-
-Do not invent official information about Youth Caring Heart.
-If you do not know something, say that you do not know.
-`
-              }
-            ]
-          },
-
-          contents: [
-            {
-              role: "user",
-              parts: [
-                {
-                  text: message.trim().slice(0, 2000)
-                }
-              ]
-            }
-          ],
-
-          generationConfig: {
-            maxOutputTokens: 500
-          }
-        })
-      }
-    );
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      console.error("Gemini error:", data);
-
-      return res.status(500).json({
-        error: "Gemini request failed."
-      });
-    }
-
-    const reply =
-      data?.candidates?.[0]?.content?.parts?.[0]?.text;
-
-    if (!reply) {
-      return res.status(500).json({
-        error: "Gemini returned an empty response."
-      });
-    }
+    console.log("GEMINI RESPONSE RECEIVED");
 
     return res.status(200).json({
-      reply
+      reply: response.text
     });
 
   } catch (error) {
-    console.error("Server error:", error);
+    console.error("GEMINI FULL ERROR:", error);
 
     return res.status(500).json({
-      error: "AI service is temporarily unavailable."
+      error: error.message || "AI service failed."
     });
   }
 }
+
+ 
